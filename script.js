@@ -1,72 +1,158 @@
-const player1 = document.getElementById('player1');
-const player2 = document.getElementById('player2');
-const player3 = document.getElementById('player3');
-const player4 = document.getElementById('player4');
-const player5 = document.getElementById('player5');
-const ball = document.getElementById('ball');
-const shotClock = document.getElementById('shot-clock');
-const team1Score = document.getElementById('team1-score');
-const team2Score = document.getElementById('team2-score');
-const quarter = document.getElementById('quarter');
+// script.js
 
-let player1X = 50;
-let player1Y = 50;
-let player2X = 50;
-let player2Y = 150;
-let player3X = 50;
-let player3Y = 250;
-let player4X = 550;
-let player4Y = 50;
-let player5X = 550;
-let player5Y = 150;
-let ballX = 290;
-let ballY = 200;
-let shotClockTime = 24;
-let team1Points = 0;
-let team2Points = 0;
+// Game Constants
+const GAME_WIDTH = 600;
+const GAME_HEIGHT = 400;
+const PLAYER_SPEED = 8;
+const JUMP_FORCE = 15;
+const GRAVITY = 0.6;
+const SHOT_CLOCK_DURATION = 24;
+const QUARTER_DURATION = 90;
+const MAX_QUARTERS = 4;
+
+// Game State
+let playerX = GAME_WIDTH / 2;
+let playerY = GAME_HEIGHT - 80;
+let playerScore = 0;
+let opponentScore = 0;
+let shotClock = SHOT_CLOCK_DURATION;
+let timeLeft = QUARTER_DURATION;
 let currentQuarter = 1;
 
-player1.style.top = player1Y + 'px';
-player1.style.left = player1X + 'px';
-player2.style.top = player2Y + 'px';
-player2.style.left = player2X + 'px';
-player3.style.top = player3Y + 'px';
-player3.style.left = player3X + 'px';
-player4.style.top = player4Y + 'px';
-player4.style.left = player4X + 'px';
-player5.style.top = player5Y + 'px';
-player5.style.left = player5X + 'px';
-ball.style.top = ballY + 'px';
-ball.style.left = ballX + 'px';
-shotClock.innerHTML = shotClockTime;
-team1Score.innerHTML = team1Points;
-team2Score.innerHTML = team2Points;
-quarter.innerHTML = 'Q' + currentQuarter;
+// Player Controls
+let leftPressed = false;
+let rightPressed = false;
+let jumpPressed = false;
+let shootPressed = false;
+let passPressed = false;
 
+// Game Elements
+const player = document.getElementById('player');
+const opponent = document.getElementById('opponent');
+const ball = document.getElementById('ball');
+const playerScoreDisplay = document.getElementById('player-score');
+const opponentScoreDisplay = document.getElementById('opponent-score');
+const timerDisplay = document.getElementById('timer');
+const scoreboard = document.getElementById('scoreboard');
+
+// Update Player Position
+function updatePlayerPosition() {
+  if (leftPressed && playerX > 0) {
+    playerX -= PLAYER_SPEED;
+  } else if (rightPressed && playerX < GAME_WIDTH - player.offsetWidth) {
+    playerX += PLAYER_SPEED;
+  }
+  if (jumpPressed && playerY === GAME_HEIGHT - player.offsetHeight) {
+    playerY -= JUMP_FORCE;
+  }
+  if (playerY < GAME_HEIGHT - player.offsetHeight) {
+    playerY += GRAVITY;
+  }
+  player.style.left = playerX + 'px';
+  player.style.top = playerY + 'px';
+}
+
+// Handle Shoot Action
+function shoot() {
+  // Handle shooting logic
+}
+
+// Handle Pass Action
+function pass() {
+  // Handle passing logic
+}
+
+// Update Shot Clock
+function updateShotClock() {
+  shotClock--;
+  if (shotClock < 0) {
+    // Handle shot clock violation
+    resetShotClock();
+  }
+  // Update shot clock display
+}
+
+// Reset Shot Clock
+function resetShotClock() {
+  shotClock = SHOT_CLOCK_DURATION;
+}
+
+// Update Timer
+function updateTimer() {
+  timeLeft--;
+  if (timeLeft < 0) {
+    // Handle end of quarter
+    resetTimer();
+  }
+  // Update timer display
+}
+
+// Reset Timer
+function resetTimer() {
+  timeLeft = QUARTER_DURATION;
+  if (currentQuarter === MAX_QUARTERS) {
+    // Handle end of game
+    // Display final score, winner, etc.
+    return;
+  }
+  currentQuarter++;
+  // Update quarter display
+}
+
+// Game Loop
+function gameLoop() {
+  updatePlayerPosition();
+  // Update AI opponent position
+  // Handle collision detection
+  // Update other game logic as needed
+  updateShotClock();
+  updateTimer();
+
+  // Update score displays
+  playerScoreDisplay.textContent = 'Player Score: ' + playerScore;
+  opponentScoreDisplay.textContent = 'Opponent Score: ' + opponentScore;
+
+  // Update timer display
+  timerDisplay.textContent = 'Time: ' + formatTime(timeLeft);
+
+  requestAnimationFrame(gameLoop);
+}
+
+// Utility function to format time as mm:ss
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  return minutes.toString().padStart(2, '0') + ':' + remainingSeconds.toString().padStart(2, '0');
+}
+
+// Event Listeners
 document.addEventListener('keydown', function(event) {
   if (event.code === 'ArrowLeft') {
-    // Move player left
+    leftPressed = true;
   } else if (event.code === 'ArrowRight') {
-    // Move player right
+    rightPressed = true;
   } else if (event.code === 'ArrowUp') {
-    // Jump
+    jumpPressed = true;
+  } else if (event.code === 'KeyZ') {
+    shootPressed = true;
   } else if (event.code === 'Space') {
-    // Pass
+    passPressed = true;
   }
 });
 
-function moveAI() {
-  // Move AI players
-}
+document.addEventListener('keyup', function(event) {
+  if (event.code === 'ArrowLeft') {
+    leftPressed = false;
+  } else if (event.code === 'ArrowRight') {
+    rightPressed = false;
+  } else if (event.code === 'ArrowUp') {
+    jumpPressed = false;
+  } else if (event.code === 'KeyZ') {
+    shootPressed = false;
+  } else if (event.code === 'Space') {
+    passPressed = false;
+  }
+});
 
-function updateScore() {
-  // Update score
-}
-
-function updateShotClock() {
-  // Update shot clock
-}
-
-setInterval(moveAI, 1000);
-setInterval(updateScore, 1000);
-setInterval(updateShotClock, 1000);
+// Start the game loop
+gameLoop();
