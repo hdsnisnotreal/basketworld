@@ -40,6 +40,34 @@ const playerScoreDisplay = document.getElementById('player-score');
 const opponentScoreDisplay = document.getElementById('opponent-score');
 const timerDisplay = document.getElementById('timer');
 const scoreboard = document.getElementById('scoreboard');
+const teams = [
+  { name: 'Team A', wins: 0, losses: 0 },
+  { name: 'Team B', wins: 0, losses: 0 },
+  // Add more team objects as needed
+];
+
+let currentGame = 1;
+let currentTeamIndex = 0;
+
+function playGame() {
+  // Game logic for playing a single game
+  // Update team scores, track wins/losses, etc.
+
+  if (currentGame < totalGames) {
+    currentGame++;
+    // Proceed to the next game
+  } else {
+    // End of season logic
+    // Display final standings, reset variables, etc.
+  }
+}
+
+function getNextOpponent() {
+  // Get the next opponent based on the current team index
+  const opponent = teams[currentTeamIndex];
+  currentTeamIndex = (currentTeamIndex + 1) % teams.length;
+  return opponent;
+}
 
 // Update Player Position
 function updatePlayerPosition() {
@@ -61,6 +89,21 @@ function updatePlayerPosition() {
 // Handle Shoot Action
 function shoot() {
   // Handle shooting logic
+}
+
+function moveAI() {
+  // Move AI based on game conditions and player actions
+  if (playerX < opponent1X) {
+    opponent1X -= PLAYER_SPEED;
+  } else if (playerX > opponent1X) {
+    opponent1X += PLAYER_SPEED;
+  }
+  // Adjust AI movements for other opponents
+
+  // Update opponent elements' positions
+  opponent1.style.left = opponent1X + 'px';
+  opponent1.style.top = opponent1Y + 'px';
+  // Adjust opponent elements' positions for other opponents
 }
 
 // Handle Pass Action
