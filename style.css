@@ -1,9 +1,89 @@
-body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+#game-board {
+  width: 600px;
+  height: 400px;
+  background-color: #87CEEB;
+  position: relative;
 }
 
-canvas {
-  display: block;
+.player {
+  width: 50px;
+  height: 50px;
+  background-color: #FFD700;
+  position: absolute;
+}
+
+#player1 {
+  top: 50px;
+  left: 50px;
+}
+
+#player2 {
+  top: 150px;
+  left: 50px;
+}
+
+#player3 {
+  top: 250px;
+  left: 50px;
+}
+
+#player4 {
+  top: 50px;
+  right: 50px;
+}
+
+#player5 {
+  top: 150px;
+  right: 50px;
+}
+
+#ball {
+  width: 20px;
+  height: 20px;
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 200px;
+  left: 290px;
+  border-radius: 50%;
+}
+
+#shot-clock {
+  width: 50px;
+  height: 50px;
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 50%;
+}
+
+#scoreboard {
+  width: 200px;
+  height: 100px;
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+#team1-score {
+  width: 50px;
+  height: 50px;
+  background-color: #FFD700;
+  float: left;
+}
+
+#team2-score {
+  width: 50px;
+  height: 50px;
+  background-color: #FFD700;
+  float: right;
+}
+
+#quarter {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  font-size: 24px;
+  line-height: 50px;
 }
