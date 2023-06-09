@@ -203,5 +203,19 @@ document.addEventListener('keyup', function(event) {
   }
 });
 
+document.addEventListener('keydown', function(event) {
+  if (event.code === 'ArrowLeft') {
+    player1.classList.add('move-left');
+  } else if (event.code === 'ArrowRight') {
+    player1.classList.add('move-right');
+  }
+});
+
+document.addEventListener('keyup', function(event) {
+  if (event.code === 'ArrowLeft' || event.code === 'ArrowRight') {
+    player1.classList.remove('move-left', 'move-right');
+  }
+});
+
 // Start the game loop
 gameLoop();
