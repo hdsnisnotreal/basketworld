@@ -1,5 +1,5 @@
 ### Basket World!
-Made by: hdsnblu
+Made by: hdsnblu (owner of Ret Games)
 
 ### Creating a Basketball Game with HTML, CSS, and JavaScript
 This project aims to create a basketball game using HTML, CSS, and JavaScript. The game will replicate the Retro Bowl experience, allowing players to control their player using arrow keys, jump and shoot with specific keys, and pass using the spacebar. The game will feature a 24-second shot clock and 1:30 quarters. Additionally, AI opponents will be implemented, and scoring will be tracked.
