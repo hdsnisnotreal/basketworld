@@ -10,6 +10,38 @@ const SHOT_CLOCK_DURATION = 24;
 const QUARTER_DURATION = 90;
 const MAX_QUARTERS = 4;
 
+// Game Sound
+const playerJumpSound = document.getElementById('playerJumpSound');
+const playerShootSound = document.getElementById('playerShootSound');
+const passSound = document.getElementById('passSound');
+const scoreSound = document.getElementById('scoreSound');
+const clockSound = document.getElementById('clockSound');
+
+function playJumpSound() {
+  playerJumpSound.currentTime = 0;
+  playerJumpSound.play();
+}
+
+function playShootSound() {
+  playerShootSound.currentTime = 0;
+  playerShootSound.play();
+}
+
+function playPassSound() {
+  passSound.currentTime = 0;
+  passSound.play();
+}
+
+function playScoreSound() {
+  scoreSound.currentTime = 0;
+  scoreSound.play();
+}
+
+function playClockSound() {
+  clockSound.currentTime = 0;
+  clockSound.play();
+}
+
 // Game State
 let playerX = GAME_WIDTH / 2;
 let playerY = GAME_HEIGHT - 80;
