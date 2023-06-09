@@ -1,5 +1,3 @@
-// script.js
-
 // Game Constants
 const GAME_WIDTH = 600;
 const GAME_HEIGHT = 400;
@@ -10,52 +8,16 @@ const SHOT_CLOCK_DURATION = 24;
 const QUARTER_DURATION = 90;
 const MAX_QUARTERS = 4;
 
-// Game Sound
-const playerJumpSound = document.getElementById('playerJumpSound');
-const playerShootSound = document.getElementById('playerShootSound');
-const passSound = document.getElementById('passSound');
-const scoreSound = document.getElementById('scoreSound');
-const clockSound = document.getElementById('clockSound');
-
-function playJumpSound() {
-  playerJumpSound.currentTime = 0;
-  playerJumpSound.play();
-}
-
-function playShootSound() {
-  playerShootSound.currentTime = 0;
-  playerShootSound.play();
-}
-
-function playPassSound() {
-  passSound.currentTime = 0;
-  passSound.play();
-}
-
-function playScoreSound() {
-  scoreSound.currentTime = 0;
-  scoreSound.play();
-}
-
-function playClockSound() {
-  clockSound.currentTime = 0;
-  clockSound.play();
-}
-
 // Game State
 let playerX = GAME_WIDTH / 2;
 let playerY = GAME_HEIGHT - 80;
 let playerScore = 0;
-let opponent1X = GAME_WIDTH / 2;
-let opponent1Y = GAME_HEIGHT - 80;
-let opponent2X = GAME_WIDTH / 2;
-let opponent2Y = GAME_HEIGHT - 80;
-// Additional opponent variables as needed
+let opponentX = GAME_WIDTH / 2;
+let opponentY = GAME_HEIGHT - 80;
 let opponentScore = 0;
 let shotClock = SHOT_CLOCK_DURATION;
 let timeLeft = QUARTER_DURATION;
 let currentQuarter = 1;
-
 
 // Player Controls
 let leftPressed = false;
@@ -71,35 +33,6 @@ const ball = document.getElementById('ball');
 const playerScoreDisplay = document.getElementById('player-score');
 const opponentScoreDisplay = document.getElementById('opponent-score');
 const timerDisplay = document.getElementById('timer');
-const scoreboard = document.getElementById('scoreboard');
-const teams = [
-  { name: 'Team A', wins: 0, losses: 0 },
-  { name: 'Team B', wins: 0, losses: 0 },
-  // Add more team objects as needed
-];
-
-let currentGame = 1;
-let currentTeamIndex = 0;
-
-function playGame() {
-  // Game logic for playing a single game
-  // Update team scores, track wins/losses, etc.
-
-  if (currentGame < totalGames) {
-    currentGame++;
-    // Proceed to the next game
-  } else {
-    // End of season logic
-    // Display final standings, reset variables, etc.
-  }
-}
-
-function getNextOpponent() {
-  // Get the next opponent based on the current team index
-  const opponent = teams[currentTeamIndex];
-  currentTeamIndex = (currentTeamIndex + 1) % teams.length;
-  return opponent;
-}
 
 // Update Player Position
 function updatePlayerPosition() {
@@ -121,21 +54,6 @@ function updatePlayerPosition() {
 // Handle Shoot Action
 function shoot() {
   // Handle shooting logic
-}
-
-function moveAI() {
-  // Move AI based on game conditions and player actions
-  if (playerX < opponent1X) {
-    opponent1X -= PLAYER_SPEED;
-  } else if (playerX > opponent1X) {
-    opponent1X += PLAYER_SPEED;
-  }
-  // Adjust AI movements for other opponents
-
-  // Update opponent elements' positions
-  opponent1.style.left = opponent1X + 'px';
-  opponent1.style.top = opponent1Y + 'px';
-  // Adjust opponent elements' positions for other opponents
 }
 
 // Handle Pass Action
@@ -183,12 +101,9 @@ function resetTimer() {
 // Game Loop
 function gameLoop() {
   updatePlayerPosition();
-  // Update AI opponent position
-  // Handle collision detection
-  // Update other game logic as needed
   updateShotClock();
   updateTimer();
-
+  
   // Update score displays
   playerScoreDisplay.textContent = 'Player Score: ' + playerScore;
   opponentScoreDisplay.textContent = 'Opponent Score: ' + opponentScore;
@@ -232,20 +147,6 @@ document.addEventListener('keyup', function(event) {
     shootPressed = false;
   } else if (event.code === 'Space') {
     passPressed = false;
-  }
-});
-
-document.addEventListener('keydown', function(event) {
-  if (event.code === 'ArrowLeft') {
-    player1.classList.add('move-left');
-  } else if (event.code === 'ArrowRight') {
-    player1.classList.add('move-right');
-  }
-});
-
-document.addEventListener('keyup', function(event) {
-  if (event.code === 'ArrowLeft' || event.code === 'ArrowRight') {
-    player1.classList.remove('move-left', 'move-right');
   }
 });
 
