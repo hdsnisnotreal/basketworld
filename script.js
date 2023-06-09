@@ -14,10 +14,16 @@ const MAX_QUARTERS = 4;
 let playerX = GAME_WIDTH / 2;
 let playerY = GAME_HEIGHT - 80;
 let playerScore = 0;
+let opponent1X = GAME_WIDTH / 2;
+let opponent1Y = GAME_HEIGHT - 80;
+let opponent2X = GAME_WIDTH / 2;
+let opponent2Y = GAME_HEIGHT - 80;
+// Additional opponent variables as needed
 let opponentScore = 0;
 let shotClock = SHOT_CLOCK_DURATION;
 let timeLeft = QUARTER_DURATION;
 let currentQuarter = 1;
+
 
 // Player Controls
 let leftPressed = false;
