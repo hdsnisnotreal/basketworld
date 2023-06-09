@@ -1,5 +1,4 @@
 ### Basket World!
-
 Made by: hdsnblu
 
 ### Creating a Basketball Game with HTML, CSS, and JavaScript
