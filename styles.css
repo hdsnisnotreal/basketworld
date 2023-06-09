@@ -78,3 +78,28 @@ body {
   font-size: 24px;
   margin-top: 10px;
 }
+
+@keyframes moveLeft {
+  from { left: 50%; }
+  to { left: 10%; }
+}
+
+@keyframes moveRight {
+  from { left: 50%; }
+  to { left: 90%; }
+}
+
+.player {
+  /* ... other styles ... */
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+.move-left {
+  animation-name: moveLeft;
+}
+
+.move-right {
+  animation-name: moveRight;
+}
