@@ -1,7 +1,21 @@
+// Boston Irish
 {"tid":0,"cid":1,"did":3,
-"region":"Albuquerque","name":"66ers","abbrev":"ALB","pop":0.59,"stadiumCapacity":70000,
+"region":"Boston","name":"Irish","abbrev":"BOS","pop":0.59,"stadiumCapacity":70000,
 "colors":["#783f04","#ffffff","#16537e"],"jersey":"jersey2",
 "retiredJerseyNumbers":[
 {"number":"66","seasonRetired":2021,"seasonTeamInfo":2021,"text":"Seu Ban"},
 "imgURL":"blob:chrome-untrusted://media-app/cee0f9eb-0551-4d21-9ee0-d99780a8d0bc",
-"imgURLSmall":"blob:chrome-untrusted://media-app/cee0f9eb-0551-4d21-9ee0-d99780a8d0bc"},
+"imgURLSmall":"blob:chrome-untrusted://media-app/cee0f9eb-0551-4d21-9ee0-d99780a8d0bc"}
+
+{"tid":0,
+"name":"Sean O'Malley",
+"jerseyNumber":"16",
+"ratings":[{"hgt":65,"stre":100,"spd":100,"endu":100,"thv”:10,”thp”:20,”tha”:15,”bsc”:100,”elu”:100,”rtr”:100,”hnd”:100,”rbk”:50,”pbk”:50,”pcv”:10,”tck”:15,”prs”:10,”rns”:15,”kpw”:50,”kac”:50,”ppw”:50,”pac”:50}],
+"pos":"PG","hgt":65,"weight":195,
+"born":{"year":2003,"loc":"Dublin, Ireland"},
+"imgURL":"blob:chrome-untrusted://media-app/6d6c9e97-8033-4efb-96fc-dfa9d04818b1",
+"contract":{"amount":200,"exp":2026},
+"draft":{"round":1,"pick":1,"tid":-1,"year":2020},
+"college":"Ohio-State",
+"injury":{"type":"Healthy","gamesRemaining":15}}
+]
