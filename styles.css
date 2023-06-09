@@ -1,6 +1,8 @@
 /* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Pixel+Emulator&display=swap');
 
 body {
+  font-family: 'Pixel Emulator', monospace;
   background-color: #222222;
   margin: 0;
   padding: 0;
