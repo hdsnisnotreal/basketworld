@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Basket World!</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-  <canvas id="canvas"></canvas>
-
-  <script src="script.js"></script>
-</body>
+  <head>
+    <title>Basketball Game</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="game-board">
+      <div id="player1" class="player"></div>
+      <div id="player2" class="player"></div>
+      <div id="player3" class="player"></div>
+      <div id="player4" class="player"></div>
+      <div id="player5" class="player"></div>
+      <div id="ball"></div>
+      <div id="shot-clock"></div>
+    </div>
+    <div id="scoreboard">
+      <div id="team1-score"></div>
+      <div id="team2-score"></div>
+      <div id="quarter"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
